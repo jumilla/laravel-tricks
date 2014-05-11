@@ -49,17 +49,17 @@ return array(
     'ja' => [
         'menu' => array(
             array(
-                'label' => '新着',
+                'label' => '見る',
                 'route' => 'browse.recent',
                 'active' => array('/','popular','comments')
             ),
             array(
-                'label' => 'カテゴリ',
+                'label' => 'カテゴリから探す',
                 'route' => 'browse.categories',
                 'active' => array('categories*')
             ),
             array(
-                'label' => 'タグ',
+                'label' => 'タグから探す',
                 'route' => 'browse.tags',
                 'active' => array('tags*')
             ),
