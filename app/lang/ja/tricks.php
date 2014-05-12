@@ -3,6 +3,9 @@
 return array(
 	'trick' => 'Trick',
     'sorry_message' => 'トリックが見つかりません!!',
+    'card' => [
+        'submitted' => '投稿',
+    ],
     'new' => [
         'create_trick' => '新しいトリックを投稿する',
         'create_error' => '入力項目にエラーがあります',
@@ -42,5 +45,10 @@ return array(
         'tags' => 'タグ',
         'prev' => '前のトリック',
         'next' => '次のトリック',
+        'submitted' => 'が投稿しました',
+        'you_like_this' => 'イイね！',
+        'like_this' => 'イイね しますか？',
+        'like' => 'like',
+        'likes' => 'likes',
     ],
 );
