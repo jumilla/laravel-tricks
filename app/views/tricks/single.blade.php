@@ -12,7 +12,7 @@
     </script>
     @if(Auth::check())
     <script>
-    (function(e){e(".js-like-trick").click(function(t){t.preventDefault();var n=e(this).data("liked")=="0";var r={_token:"{{ csrf_token() }}"};e.post('{{ route("tricks.like", $trick->slug) }}',r,function(t){if(t!="error"){if(!n){e(".js-like-trick .fa").removeClass("text-primary");e(".js-like-trick").data("liked","0");e(".js-like-status").html("Like this?")}else{e(".js-like-trick .fa").addClass("text-primary");e(".js-like-trick").data("liked","1");e(".js-like-status").html("You like this")}e(".js-like-count").html(t+" likes")}})})})(jQuery)
+    (function(e){e(".js-like-trick").click(function(t){t.preventDefault();var n=e(this).data("liked")=="0";var r={_token:"{{ csrf_token() }}"};e.post('{{ route("tricks.like", $trick->slug) }}',r,function(t){if(t!="error"){if(!n){e(".js-like-trick .fa").removeClass("text-primary");e(".js-like-trick").data("liked","0");e(".js-like-status").html("{{trans('tricks.single.like_this')}}")}else{e(".js-like-trick .fa").addClass("text-primary");e(".js-like-trick").data("liked","1");e(".js-like-status").html("{{trans('tricks.single.you_like_this')}}")}e(".js-like-count").html(t+" likes")}})})})(jQuery)
     </script>
     @endif
 @stop
@@ -38,7 +38,11 @@
                                 {{ $trick->title }}
                             </h1>
                             <div>
-                                Submitted by <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                                @if(App::getLocale() != 'ja')
+                                {{trans('tricks.single.submitted')}} <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> - {{ $trick->timeago }}
+                                @else
+                                <b><a href="{{ route('user.profile', $trick->user->username) }}">{{ $trick->user->username }}</a></b> {{trans('tricks.single.submitted')}} - {{ $trick->timeago }}
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -56,14 +60,14 @@
                                 @if(Auth::check())
                                 <span class="js-like-status">
                                     @if($trick->likedByUser(Auth::user()))
-                                        You like this
+                                        {{trans('tricks.single.you_like_this')}}
                                     @else
-                                        Like this?
+                                        {{trans('tricks.single.like_this')}}
                                     @endif
                                 </span>
                                 <span class="pull-right js-like-count">
                                 @endif
-                                    {{ $trick->vote_cache }} {{ Str::plural('like', $trick->vote_cache) }}
+                                    {{ $trick->vote_cache }} {{ Str::plural(trans('tricks.single.like'), $trick->vote_cache) }}
                                 @if(Auth::check())</span>@endif
                             </a>
                             <li class="list-group-item">

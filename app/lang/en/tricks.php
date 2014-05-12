@@ -3,6 +3,9 @@
 return array(
 	'trick' => 'Trick',
     'sorry_message' => 'Sorry, but I couldn\'t find any tricks for you!',
+    'card' => [
+        'submitted' => 'Submitted',
+    ],
     'new' => [
         'create_trick' => 'Creating a new trick',
         'create_error' => 'There were errors while creating this trick:',
@@ -42,5 +45,10 @@ return array(
         'tags' => 'Tags',
         'prev' => 'Previous Trick',
         'next' => 'Next Trick',
+        'submitted' => 'Submitted by',
+        'you_like_this' => 'You like this',
+        'like_this' => 'Like this?',
+        'like' => 'like',
+        'likes' => 'likes',
     ],
 );
