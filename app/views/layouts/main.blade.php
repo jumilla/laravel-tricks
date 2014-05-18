@@ -1,9 +1,10 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
+      xmlns:fb="https://www.facebook.com/2008/fbml" lang="{{App::getLocale()}}">
     <head>
         @section('description', trans('layouts.main.description'))
+        @section('keywords', trans('layouts.main.keywords'))
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,7 @@
         <meta property="og:description" content="@yield('description')" />
         <meta name="description" content="@yield('description')">
         <meta name="author" content="Stidges, @stidges and Maks Surguy, @msurguy">
-        <meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+        <meta name="keywords" content="@yield('keywords')">
         <title>@yield('title')
          | {{{ trans('layouts.main.html_title_suffix') }}}</title>
         <link rel="stylesheet" href="{{ URL::asset('css/laratricks.min.css') }}">
