@@ -8,6 +8,8 @@ use Tricks\Category;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\HTML;
 use McCool\LaravelAutoPresenter\BasePresenter;
+use Carbon\Carbon;
+
 
 class TrickPresenter extends BasePresenter
 {

@@ -269,7 +269,10 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     {
         //$trick->user_id = $data['user_id'];
         $trick->title = e($data['title']);
-        $trick->slug = Str::slug($data['title'], '-');
+        //$trick->slug        = Str::slug($data['title'], '-');
+        // ascii変換されるためシンプルにslug作成するように変更
+        $trick->slug = $this->slug($data['title']);
+
         $trick->description = e($data['description']);
         $trick->code = $data['code'];
 
