@@ -8,7 +8,7 @@ use Tricks\Category;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\HTML;
 use McCool\LaravelAutoPresenter\BasePresenter;
-use Carbon\Carbon;
+use Jenssegers\Date\Date;
 
 
 class TrickPresenter extends BasePresenter
@@ -58,37 +58,8 @@ class TrickPresenter extends BasePresenter
      */
     public function timeago()
     {
-        $created_at = $this->resource->created_at;
-
-        $delta = $created_at->diffInSeconds(Carbon::now());
-
-        $divs = [
-             '秒' => Carbon::SECONDS_PER_MINUTE,
-             '分' => Carbon::MINUTES_PER_HOUR,
-             '時'   => Carbon::HOURS_PER_DAY,
-             '日'    => Carbon::DAYS_PER_WEEK,
-             '月'   => 4,
-             '年'  => Carbon::MONTHS_PER_YEAR
-        ];
-
-        $unit = '年';
-
-        foreach ($divs as $divUnit => $divValue) {
-            if ($delta < $divValue) {
-                $unit = $divUnit;
-                break;
-            }
-
-            $delta = floor($delta / $divValue);
-        }
-
-        if ($delta == 0) {
-            $delta = 1;
-        }
-
-        $txt = $delta . $unit;
-
-        return $txt . '前';
+        $date = new Date();
+        return $date->ago($this->resource->created_at);
     }
 
     /**

@@ -105,12 +105,13 @@ return array(
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
-        // 'Illuminate\Workbench\WorkbenchServiceProvider',
+        'Illuminate\Workbench\WorkbenchServiceProvider',
 
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         'Intervention\Image\ImageServiceProvider',
         'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
         'Roumen\Sitemap\SitemapServiceProvider',
+        'Jenssegers\Date\DateServiceProvider',
 
         'Tricks\Providers\RepositoryServiceProvider',
         'Tricks\Providers\SocialServiceProvider',
@@ -191,6 +192,7 @@ return array(
         'ImageUpload'    => 'Tricks\Facades\ImageUpload',
         'Navigation'     => 'Tricks\Facades\Navigation',
         'Disqus'         => 'Tricks\Facades\Disqus',
+        'Date'           => 'Jenssegers\Date\Date',
     ),
 
 );
